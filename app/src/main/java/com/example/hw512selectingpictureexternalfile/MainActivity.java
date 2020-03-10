@@ -1,25 +1,48 @@
 package com.example.hw512selectingpictureexternalfile;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
+    private final static String SHARD_PREF_NAME = "sharedPreferences";
+    private final static String FILE_PATH_KEY = "filePath";
+
     private ConstraintLayout engineeringView;
     private ConstraintLayout mainView;
     private CalcView curCalcView = CalcView.MAIN_VIEW;
     private String textBuffer;
     private TextView txtOutput;
+    private ImageView backgroundImageView;
+    private SharedPreferences sharedPreferences;
+    private String filePath;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPreferences = getSharedPreferences(SHARD_PREF_NAME, MODE_PRIVATE);
+        filePath = sharedPreferences.getString(FILE_PATH_KEY, null);
+        if (filePath != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+            backgroundImageView.setImageBitmap(bitmap);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +53,17 @@ public class MainActivity extends AppCompatActivity {
         engineeringView.setVisibility(View.GONE);
         txtOutput = findViewById(R.id.txtOutput);
         mainView = findViewById(R.id.mainView);
+        backgroundImageView = findViewById(R.id.backgroundImageView);
 
-
+        sharedPreferences = getSharedPreferences(SHARD_PREF_NAME, MODE_PRIVATE);
+        filePath = sharedPreferences.getString(FILE_PATH_KEY, null);
+        if (filePath != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+            backgroundImageView.setImageBitmap(bitmap);
+        }
     }
 
-    public void onClick(View v) { //TODO больше не работает
+    public void onClick(View v) {
         Button btn = (Button) v;
         String curBtn = btn.getText().toString();
 
@@ -100,5 +129,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
