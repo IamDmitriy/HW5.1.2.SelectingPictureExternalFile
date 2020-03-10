@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txt_size">24sp</dimen>
+    <dimen name="square_btn">70dp</dimen>
+    <dimen name="double_side_btn">140dp</dimen>
+</resources>

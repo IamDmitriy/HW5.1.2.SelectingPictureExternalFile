@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Калькулятор</string>
+    <string name="btn_c">C</string>
+    <string name="btn_sign">+/-</string>
+    <string name="btn_percent">%</string>
+    <string name="btn_divide">/</string>
+    <string name="btn_multiply">x</string>
+    <string name="btn_minus">-</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_equal">=</string>
+    <string name="btn_one">1</string>
+    <string name="btn_two">2</string>
+    <string name="btn_three">3</string>
+    <string name="btn_seven">7</string>
+    <string name="btn_eight">8</string>
+    <string name="btn_nine">9</string>
+    <string name="btn_four">4</string>
+    <string name="btn_five">5</string>
+    <string name="btn_six">6</string>
+    <string name="btn_zero">0</string>
+    <string name="btn_point">.</string>
+    <string name="btn_engineering_view">Инженерный вид</string>
+    <string name="btn_main_view">Простой вид</string>
+    <string name="txt_inv">Inv</string>
+    <string name="txt_ln">In</string>
+    <string name="txt_sinh">sinh</string>
+    <string name="txt_cosh">cosh</string>
+    <string name="txt_tanh">tanh</string>
+    <string name="txt_exp">exp</string>
+    <string name="txt_left_bracket">(</string>
+    <string name="txt_right_bracket">)</string>
+    <string name="txt_sin">sin</string>
+    <string name="txt_x2">X^2</string>
+    <string name="txt_nfactorial">n!</string>
+    <string name="txt_cos">cos</string>
+    <string name="txt_x_y">x^y</string>
+    <string name="txt_root_y_x">y√x</string>
+    <string name="txt_tan">tan</string>
+    <string name="txt_x_3">x^3</string>
+    <string name="txt_3_root_x">3√x</string>
+    <string name="txt_mod">Mod</string>
+    <string name="txt_log">log</string>
+    <string name="txt_10_x">10^x</string>
+    <string name="error_point_already_exist">Точка уже существует</string>
+    <string name="settings">Настройки</string>
+</resources>
