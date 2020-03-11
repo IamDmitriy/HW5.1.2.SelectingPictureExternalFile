@@ -1,14 +1,12 @@
 package com.example.hw512selectingpictureexternalfile;
 
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,13 +38,16 @@ public class SettingsActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(inputNameImage.getText())) {
+                    showToast(getString(R.string.error_field_empty));
+                    return;
+                }
                 String nameImage = inputNameImage.getText().toString();
-                //TODO замуты с TextUtils
-                //TODO Проверку на ошибки и тд
+
                 String filePath = findFilePathByName(nameImage);
 
                 if (filePath == null) {
-                    showToast("Такой файл не найден");
+                    showToast(getString(R.string.error_file_not_found));
                 } else {
                     sharedPreferences.edit().putString(FILE_PATH_KEY, filePath).commit();
                     finish();

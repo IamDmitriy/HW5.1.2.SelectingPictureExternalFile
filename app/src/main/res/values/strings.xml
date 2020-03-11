@@ -43,4 +43,6 @@
     <string name="txt_10_x">10^x</string>
     <string name="error_point_already_exist">Точка уже существует</string>
     <string name="settings">Настройки</string>
+    <string name="error_file_not_found">Такой файл не найден!</string>
+    <string name="error_field_empty">Пожалуйста, введите полное название картинки!</string>
 </resources>
