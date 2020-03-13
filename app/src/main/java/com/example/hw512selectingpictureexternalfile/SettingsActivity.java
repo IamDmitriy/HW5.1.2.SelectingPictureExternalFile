@@ -3,7 +3,6 @@ package com.example.hw512selectingpictureexternalfile;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,11 +37,14 @@ public class SettingsActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(inputNameImage.getText())) {
+
+                String nameImage = inputNameImage.getText().toString();
+
+                if (nameImage.isEmpty()) {
                     showToast(getString(R.string.error_field_empty));
                     return;
                 }
-                String nameImage = inputNameImage.getText().toString();
+
 
                 String filePath = findFilePathByName(nameImage);
 

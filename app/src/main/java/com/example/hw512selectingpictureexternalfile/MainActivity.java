@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout engineeringView;
     private ConstraintLayout mainView;
     private CalcView curCalcView = CalcView.MAIN_VIEW;
-    private String textBuffer;
     private TextView txtOutput;
     private ImageView backgroundImageView;
     private SharedPreferences sharedPreferences;
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button) v;
         String curBtn = btn.getText().toString();
 
+        String textBuffer;
         if (TextUtils.isEmpty(txtOutput.getText())) {
             textBuffer = "";
         } else {
@@ -131,7 +131,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
 }
